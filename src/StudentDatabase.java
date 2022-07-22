@@ -1,10 +1,20 @@
-public class StudentDatabase {
-    
-    //Ask number of students to be added
+import java.util.Scanner;
 
+public class StudentDatabase {
     //Create new student 
     public static void main(String[] args) {
-        Student student1 = new Student();
-        student1.enroll();
+        
+        //Ask number of students to be added
+        System.out.print("Enter Num of students to be added : ");
+        Scanner sc = new Scanner(System.in);
+        int numOfStudents = sc.nextInt();
+        Student[] student = new Student[numOfStudents];
+
+        for (int i = 0; i < numOfStudents; i++) {
+            student[i] = new Student();
+            student[i].enroll();
+            student[i].PayFee();
+            System.out.println(student[i].toString());
+        }     
     }
 }

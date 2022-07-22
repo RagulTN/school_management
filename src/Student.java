@@ -14,10 +14,10 @@ public class Student {
     //Receive student name and year
     public Student(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter student First Name : ");
+        System.out.print("Enter student First Name : ");
         this.firstName = sc.nextLine();
 
-        System.out.println("Enter student Last Name : ");
+        System.out.print("Enter student Last Name : ");
         this.lastName = sc.nextLine();
 
         System.out.println(" 1 - First year \n 2 - Second year \n 3 - Third year \n 4 - final year");
@@ -41,7 +41,7 @@ public class Student {
             Scanner sc = new Scanner(System.in);
             String course = sc.nextLine();
             if(!course.equals("quit")){
-                courses = courses + " " + course;
+                courses = courses + course + " ";
                 feeBalance = feeBalance + costOfCourse;
             }
             else{
@@ -51,28 +51,34 @@ public class Student {
         } while(true);
 
     System.out.println("Enrolled Courses : " + courses);
-    System.out.println("Fee Balance : " + feeBalance);
+    System.out.println("Total amount of courses : " + feeBalance);
+    System.out.println("-----------");
     }
 
     //Pay tuition
     public void ViewBalance(){
-        System.out.println("Your Balance is : " + feeBalance);
+        System.out.println("Your Fee Balance : " + feeBalance);
+        System.out.println("-----------");
+
     }
 
     //Pay Fee amount
     public void PayFee(){
+        System.out.print("Enter Pay Amount : ");
         Scanner sc = new Scanner(System.in);
         int payAmount = sc.nextInt();
+        System.out.println();
         feeBalance = feeBalance - payAmount;
-        System.out.println("Thank for your payment rupees" + payAmount);
+        System.out.println("You have paid : " + payAmount + " rupees");
         ViewBalance();
 
     }
 
     //Show status
-    public String showInfo(){
-        return "Name : " + firstName +" "+lastName+"\n Course Enrolled : "
-         +courses+ "\nBalance : "+ feeBalance;
+    public String toString(){
+        return " \n Student Details : \n \n Name : " + firstName +" "+lastName+ "\n Grade year : " + gradeYear +
+         "\n Student ID : " + studentID + "\n Course Enrolled : "
+         + courses + " \n Balance : "+ feeBalance;
 
     }
 
